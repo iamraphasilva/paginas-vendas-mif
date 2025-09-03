@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Fim das Dívidas - O Método Simples Para Retomar o Controle</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins e Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Definindo as fontes base com Tailwind */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #212121;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Efeito de sobreposição na imagem do herói */
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        /* Estilo para a barra de progresso com listras */
+        .progress-bar-track {
+            background-color: #374151; /* Cor de fundo cinza escuro (gray-700) */
+            background-image: repeating-linear-gradient(
+              45deg,
+              #4b5563, /* Cinza um pouco mais claro (gray-600) */
+              #4b5563 10px,
+              #374151 10px,
+              #374151 20px
+            );
+        }
+        
+        /* Estilos personalizados para o formulário do Active Campaign */
+        .form-container input[type='text'],
+        .form-container input[type='email'] {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #4B5563; /* border-gray-600 */
+            color: #FFFFFF;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-container input[type='text']:focus,
+        .form-container input[type='email']:focus {
+            outline: none;
+            border-color: #F59E0B; /* border-amber-500 */
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5); /* ring-amber-500 */
+        }
+        .form-container input::placeholder {
+            color: #6B7280; /* placeholder-gray-500 */
+        }
+        .form-container button {
+            width: 100%;
+            background-color: #F59E0B; /* bg-amber-500 */
+            color: #1F2937; /* text-gray-800 */
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #D97706; /* hover:bg-amber-600 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Barra Fixa de Urgência -->
+    <div id="urgency-bar-container" class="fixed top-0 left-0 right-0 z-40 shadow-lg font-poppins bg-red-600 sm:py-1">
+        <!-- Container da Barra de Progresso com margens laterais -->
+        <div class="mx-4 my-2">
+            <!-- Barra de progresso com cantos arredondados e maior espessura -->
+            <div class="h-4 w-full progress-bar-track rounded-full overflow-hidden">
+                <!-- Preenchimento aumentado para 93% -->
+                <div class="bg-amber-400 h-full" style="width: 93%;"></div>
+            </div>
+        </div>
+        <!-- Texto de Urgência -->
+        <div class="text-white px-2 pb-2 text-center">
+            <span class="font-bold text-sm sm:text-base uppercase tracking-wider">ÚLTIMAS VAGAS COM A OFERTA ESPECIAL</span>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) -->
+    <header class="relative min-h-screen flex items-center justify-start text-left overflow-hidden pt-36">
+        <!-- Imagem de fundo que representa transformação -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto-format&fit=crop" 
+                 alt="Pessoa sorrindo com tranquilidade enquanto organiza suas finanças" 
+                 class="w-full h-full object-cover">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <!-- Conteúdo do Herói com padding-bottom para criar a "área de segurança" no mobile -->
+        <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl sm:pb-0 pb-16">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-200">
+                Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
+            </p>
+            <div class="mt-4 md:mt-10">
+                <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
+                    QUERO SAIR DAS DÍVIDAS
+                </a>
+                <p class="mt-4 text-sm text-gray-300">Acesso por apenas 12x de R$ 11,04 ou R$ 67,50 à vista</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO 2: IDENTIFICAÇÃO DA DOR -->
+    <section class="py-16 sm:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Este Método é Para Você Que...</h2>
+            </div>
+            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Itens de Dor -->
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <p class="text-lg text-gray-300">Tenta economizar todos os meses, mas continua terminando no vermelho.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <p class="text-lg text-gray-300">Possui várias dívidas e não tem clareza de como começar a resolvê-las.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <p class="text-lg text-gray-300">Sente que o dinheiro nunca sobra no final do mês, não importa o quanto trabalhe.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <p class="text-lg text-gray-300">Precisa recorrer ao cheque especial ou ao cartão de crédito para fechar as contas.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <p class="text-lg text-gray-300">Sabe que precisa mudar de vida financeira, mas se sente perdido e sem direção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: O MAPA DO TESOURO -->
+    <section class="py-16 sm:py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">O Mapa Para Sua Liberdade Financeira</h2>
+                <p class="mt-4 text-lg text-gray-400">Uma jornada de 5 passos para você sair do caos e construir um futuro próspero.</p>
+            </div>
+            <div class="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+                <!-- Passos -->
+                <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-700 mx-auto"><svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
+                    <h3 class="mt-5 text-xl font-bold">Passo 1: Comande o Território</h3>
+                    <p class="mt-2 text-gray-400">Aprenda a analisar seu momento atual. Saber exatamente onde você está é o primeiro passo para chegar aonde deseja.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-700 mx-auto"><svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg></div>
+                    <h3 class="mt-5 text-xl font-bold">Passo 2: Desenhe Suas Fronteiras</h3>
+                    <p class="mt-2 text-gray-400">Planilhe tudo que entra e sai. Entender para onde seu dinheiro realmente vai é libertador e um divisor de águas.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-700 mx-auto"><svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
+                    <h3 class="mt-5 text-xl font-bold">Passo 3: Desarme as Armadilhas</h3>
+                    <p class="mt-2 text-gray-400">Pare de fazer novas dívidas e aprenda a negociar as antigas. Crie uma vida financeira estável e próspera.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-700 mx-auto"><svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div>
+                    <h3 class="mt-5 text-xl font-bold">Passo 4: Expanda Seu Reino</h3>
+                    <p class="mt-2 text-gray-400">Descubra como criar novas fontes de renda e planejar a longo prazo para quitar todas as suas dívidas de vez.</p>
+                </div>
+                <div class="text-center p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-700 mx-auto"><svg class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div>
+                    <h3 class="mt-5 text-xl font-bold">Passo 5: Coroe Seu Futuro</h3>
+                    <p class="mt-2 text-gray-400">Construa uma mentalidade (mindset) forte e tenha clareza do futuro próspero que você pode conquistar a partir de hoje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: OFERTA IRRESISTÍVEL (BÔNUS) -->
+    <section class="py-16 sm:py-24 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Ao Garantir Sua Vaga Hoje, Você Também Leva Acesso Imediato a Tudo Isso:</h2>
+            </div>
+            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Bônus 1: Planilha -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                    <div class="h-48 flex items-center justify-center p-4">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/mockup%20planilha.webp" alt="Mockup da Planilha de Controle Financeiro" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">BÔNUS 1: Planilha de Controle Financeiro</h3>
+                        <p class="mt-2 text-gray-400">A ferramenta definitiva para organizar seus ganhos, gastos e metas em um só lugar.</p>
+                    </div>
+                </div>
+                <!-- Bônus 2: Meditação -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                    <div class="h-48 flex items-center justify-center p-4">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/Nova%20imagem%20meditacao%20branca.png" alt="Mockup da Meditação Guiada" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">BÔNUS 2: Meditação Guiada para Prosperidade</h3>
+                         <p class="mt-2 text-gray-400">Acalme sua mente e conecte-se com a energia da abundância para liberar bloqueios.</p>
+                    </div>
+                </div>
+                <!-- Bônus 3: Alinhamento -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                    <div class="h-48 flex items-center justify-center p-4">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/Mockup%20de%20Alinhamento%20Energetico.jpeg" alt="Mockup do Alinhamento Energético" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">BÔNUS 3: Alinhamento Energético</h3>
+                        <p class="mt-2 text-gray-400">Eleve sua vibração de riqueza e harmonize corpo, mente e alma com as leis universais.</p>
+                    </div>
+                </div>
+                 <!-- Bônus 4: E-book -->
+                 <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                    <div class="h-48 flex items-center justify-center p-4">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/Nova%20Imagem%20Ebook%20Mockup.png" alt="Mockup do E-book Aprenda a Poupar" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">BÔNUS 4: E-book “Aprenda a Poupar”</h3>
+                        <p class="mt-2 text-gray-400">Dicas simples e eficazes para começar a poupar de forma leve, mesmo com pouco dinheiro.</p>
+                    </div>
+                </div>
+                 <!-- Bônus 5: Planner -->
+                 <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg flex flex-col">
+                    <div class="h-48 flex items-center justify-center p-4 overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/Nova%20Imagem%20Planner%20Mockup.png" alt="Mockup do Planner Mensal" class="max-h-full max-w-full object-contain transform scale-[1.4]">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">BÔNUS 5: Planner de Controle Mensal</h3>
+                        <p class="mt-2 text-gray-400">Acompanhe seus gastos e metas mês a mês com mais foco, clareza e organização.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: CTA E GARANTIA -->
+    <section id="oferta" class="py-16 sm:py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">ACESSE O MÉTODO COMPLETO + TODOS OS BÔNUS AGORA</h2>
+            <div class="mt-8 bg-gray-800 p-8 rounded-2xl shadow-2xl">
+                <p class="text-lg text-gray-400">De <span class="line-through">R$ 690,50</span> por apenas:</p>
+                <p class="my-4 text-5xl md:text-6xl font-bold text-amber-500">12x de R$ 11,04</p>
+                <p class="text-xl text-white">ou R$ 67,50 à vista</p>
+                <a href="#" class="open-modal-btn mt-8 inline-block w-full max-w-md bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-xl rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
+                    GARANTIR MINHA VAGA COM DESCONTO
+                </a>
+                <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+                    <div class="flex-shrink-0 bg-gray-900 p-2 rounded-lg">
+                        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/Nova%20Imagem%207%20dias%20Garantia.png" alt="Selo de Garantia de 7 dias" class="w-24 h-24 object-contain">
+                    </div>
+                    <p class="text-left text-gray-300 max-w-sm">Você tem <strong>7 dias de garantia incondicional</strong>. Se por qualquer motivo achar que o método não é para você, devolvemos 100% do seu dinheiro. Risco zero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7: SOBRE O AUTOR -->
+    <section class="py-16 sm:py-24 bg-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <img class="h-48 w-48 rounded-full object-cover shadow-2xl" src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/foto%20ricardo.jpg" alt="Foto de Ricardo Melo">
+                </div>
+                <div class="mt-8 md:mt-0 md:w-2/3">
+                    <h2 class="text-3xl font-bold text-white">Quem Vai Te Guiar Nessa Jornada</h2>
+                    <h3 class="mt-2 text-2xl font-semibold text-amber-500">Ricardo Melo</h3>
+                    <p class="mt-4 text-lg text-gray-300">Referência em Coaching Financeiro e autor de 12 livros, incluindo o best-seller “As Leis Invisíveis do Dinheiro”. Com mais de 20 anos de experiência, já transformou a vida financeira de milhares de pessoas através de seu método que une técnica e mentalidade. Sua missão é te mostrar o caminho para se libertar das dívidas e construir uma vida de prosperidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 8: PERGUNTAS FREQUENTES (FAQ) -->
+    <section class="py-16 sm:py-24 bg-gray-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Ainda com Dúvidas? Encontre Sua Resposta Aqui.</h2>
+            <div class="mt-10 space-y-4">
+                <!-- Perguntas -->
+                <details class="bg-gray-800 p-6 rounded-lg cursor-pointer"><summary class="font-bold text-lg text-white">Por quanto tempo terei acesso?</summary><p class="mt-4 text-gray-300">O acesso ao curso e a todos os bônus é válido por 12 meses (1 ano) a partir da data da compra. Você pode assistir às aulas quantas vezes quiser durante esse período.</p></details>
+                <details class="bg-gray-800 p-6 rounded-lg cursor-pointer"><summary class="font-bold text-lg text-white">Como vou receber os materiais?</summary><p class="mt-4 text-gray-300">Logo após a confirmação do pagamento, você receberá um e-mail com todas as instruções para acessar a nossa área de membros exclusiva, onde encontrará as videoaulas, a planilha, o e-book e todos os outros materiais.</p></details>
+                <details class="bg-gray-800 p-6 rounded-lg cursor-pointer"><summary class="font-bold text-lg text-white">Este curso serve para quem tem muitas dívidas?</summary><p class="mt-4 text-gray-300">Com certeza. O método foi desenhado especialmente para quem se sente perdido em meio a muitas dívidas. Ele te dará a clareza e o passo a passo para organizar tudo, negociar e quitar suas dívidas, não importa o tamanho delas.</p></details>
+                <details class="bg-gray-800 p-6 rounded-lg cursor-pointer"><summary class="font-bold text-lg text-white">O pagamento é seguro?</summary><p class="mt-4 text-gray-300">Sim, 100% seguro. Utilizamos uma das maiores e mais seguras plataformas de pagamento do Brasil. Seus dados estão completamente protegidos.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9: RODAPÉ -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p class="font-bold text-white text-xl">Instituto Ricardo Melo</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center sm:space-x-4">
+                 <p class="mt-2">irm@institutoricardomelo.com.br</p>
+                 <a href="https://wa.me/553181141526" target="_blank" rel="noopener noreferrer" class="mt-2 sm:mt-0 hover:text-white">+55 (31) 98114-1526</a>
+            </div>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://institutoricardomelo.com.br/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Facebook</a>
+                <a href="https://www.instagram.com/ricardomeloprosperidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Instagram</a>
+                <a href="https://www.youtube.com/@portalirm" target="_blank" rel="noopener noreferrer" class="hover:text-white">YouTube</a>
+            </div>
+            <p class="mt-8 text-sm">CNPJ: 03.237.525/0001-33. &copy; 2025 Instituto Ricardo Melo. Todos os direitos reservados.</p>
+            <div class="mt-4 text-sm space-x-4">
+                <a href="https://novidadesirm.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Política de Privacidade e Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/553199784291" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-1 right-1 sm:bottom-2 sm:right-2 z-30 transition-transform transform hover:scale-110">
+        <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/mockup%20wpp%20v3.png" alt="Fale Conosco pelo WhatsApp" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full shadow-lg">
+    </a>
+
+    <!-- Modal/Pop-up do Formulário -->
+    <div id="form-modal" class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-75 hidden">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-lg relative mx-4">
+            <button id="close-modal-btn" class="absolute top-2 right-4 text-gray-400 hover:text-white text-4xl font-bold">&times;</button>
+            <h2 class="text-2xl font-bold text-white mb-4">Quase lá!</h2>
+            <p class="text-gray-300 mb-6">Preencha os seus dados abaixo para garantir a sua vaga.</p>
+            
+            <!-- AQUI ENTRA O CÓDIGO DO ACTIVE CAMPAIGN -->
+            <div class="form-container">
+                <form method="POST" action="https://institutoricardomelo.activehosted.com/proc.php" id="form_47" novalidate>
+                    <input type="hidden" name="u" value="47" />
+                    <input type="hidden" name="f" value="47" />
+                    <input type="hidden" name="s" />
+                    <input type="hidden" name="c" value="0" />
+                    <input type="hidden" name="m" value="0" />
+                    <input type="hidden" name="act" value="sub" />
+                    <input type="hidden" name="v" value="2" />
+                    
+                    <div class="space-y-6">
+                        <input type="text" name="fullname" placeholder="Digite seu primeiro nome" required class="w-full">
+                        <input type="email" name="email" placeholder="Digite seu melhor e-mail" required class="w-full">
+                        <input type="text" name="phone" placeholder="Digite seu telefone" required onkeydown="return mascaraTelefone(event)" class="w-full">
+                        <button type="submit">ACABAR COM AS DÍVIDAS</button>
+                    </div>
+                </form>
+            </div>
+            <!-- FIM DO CÓDIGO DO ACTIVE CAMPAIGN -->
+
+        </div>
+    </div>
+
+    <script>
+        // Script para a máscara de telefone
+        function mascaraTelefone(event) {
+            let tecla = event.key;
+            let telefone = event.target.value.replace(/\D+/g, "");
+
+            if (/^[0-9]$/i.test(tecla)) {
+                telefone = telefone + tecla;
+                let tamanho = telefone.length;
+
+                if (tamanho >= 12) {
+                    return false;
+                }
+
+                if (tamanho > 10) {
+                    telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+                } else if (tamanho > 5) {
+                    telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+                } else if (tamanho > 2) {
+                    telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+                } else {
+                    telefone = telefone.replace(/^(\d*)/, "($1");
+                }
+
+                event.target.value = telefone;
+            }
+
+            if (!["Backspace", "Delete", "Tab"].includes(tecla)) {
+                return false;
+            }
+        }
+
+        // Script para o Modal
+        const modal = document.getElementById('form-modal');
+        const openModalButtons = document.querySelectorAll('.open-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        const openModal = (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        };
+
+        const closeModal = () => {
+            modal.style.display = 'none';
+        };
+
+        openModalButtons.forEach(btn => {
+            btn.addEventListener('click', openModal);
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+
+        // Script de tracking UTM
+        const utms = {
+            'campaign': 220,
+            'medium': 219,
+            'source': 216,
+            'content': 217,
+            'term': 218
+        };
+
+        const prefixo = "utm_";
+
+        function criarCampos() {
+            const form = document.querySelectorAll('form');
+            const urlParamsCapt = new URLSearchParams(window.location.search);
+            const urlParamsCaptReferrer = new URLSearchParams(document.referrer.split('?')[1] || '');
+
+            form.forEach(el => {
+                for (let utm in utms) {
+                    const paramName = prefixo + utm;
+                    if (!el.querySelector(`input[name="field[${utms[utm]}]"]`)) {
+                        let x = document.createElement("INPUT");
+                        x.setAttribute("type", "hidden");
+                        x.setAttribute("name", `field[${utms[utm]}]`);
+
+                        if (utm === "source") {
+                            x.setAttribute("value", urlParamsCapt.get(paramName) ? urlParamsCapt.get(paramName) : (document.referrer ? (urlParamsCaptReferrer.get(paramName) || new URL(document.referrer).hostname) : "direto"));
+                        } else {
+                            x.setAttribute("value", urlParamsCapt.get(paramName) || urlParamsCaptReferrer.get(paramName) || "");
+                        }
+
+                        el.appendChild(x);
+                    }
+                }
+            });
+        }
+
+        criarCampos();
+        window.onload = criarCampos;
+        const emailInput = document.getElementById("email");
+        if(emailInput) {
+            emailInput.onchange = function () { criarCampos(); }
+        }
+    </script>
+</body>
+</html>
+
+
+
