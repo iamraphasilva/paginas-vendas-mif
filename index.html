@@ -31,17 +31,6 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
         }
-        /* Efeito de sobreposição na imagem do herói */
-        .hero-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
         /* Estilo para a barra de progresso com listras */
         .progress-bar-track {
             background-color: #374151; /* Cor de fundo cinza escuro (gray-700) */
@@ -116,29 +105,23 @@
         </div>
     </div>
 
-    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) -->
-    <header class="relative min-h-screen flex items-center justify-start text-left overflow-hidden pt-36">
-        <!-- Imagem de fundo que representa transformação -->
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto-format&fit=crop" 
-                 alt="Pessoa sorrindo com tranquilidade enquanto organiza suas finanças" 
-                 class="w-full h-full object-cover">
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <!-- Conteúdo do Herói com padding-bottom para criar a "área de segurança" no mobile -->
-        <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl sm:pb-0 pb-16">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
-            </h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-200">
-                Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
-            </p>
-            <div class="mt-4 md:mt-10">
-                <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
-                    QUERO SAIR DAS DÍVIDAS
-                </a>
-                <p class="mt-4 text-sm text-gray-300">Acesso por apenas 12x de R$ 11,04 ou R$ 67,50 à vista</p>
+    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) - SEM IMAGEM -->
+    <header class="bg-gray-800 pt-48 pb-24 sm:pt-56 sm:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Conteúdo do Herói -->
+            <div class="max-w-4xl">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                    O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-300">
+                    Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
+                </p>
+                <div class="mt-6 md:mt-8">
+                    <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
+                        QUERO SAIR DAS DÍVIDAS
+                    </a>
+                    <p class="mt-4 text-sm text-gray-300">Acesso por apenas 12x de R$ 11,04 ou R$ 67,50 à vista</p>
+                </div>
             </div>
         </div>
     </header>
@@ -493,5 +476,4 @@
     </script>
 </body>
 </html>
-
 
