@@ -31,17 +31,6 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
         }
-        /* Efeito de sobreposição na imagem do herói */
-        .hero-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
         /* Estilo para a barra de progresso com listras */
         .progress-bar-track {
             background-color: #374151; /* Cor de fundo cinza escuro (gray-700) */
@@ -53,44 +42,11 @@
               #374151 20px
             );
         }
-        
-        /* Estilos personalizados para o formulário do Active Campaign */
-        .form-container input[type='text'],
-        .form-container input[type='email'] {
-            background-color: #1f2937; /* bg-gray-800 */
-            border: 1px solid #4B5563; /* border-gray-600 */
-            color: #FFFFFF;
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            font-family: 'Lato', sans-serif;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .form-container input[type='text']:focus,
-        .form-container input[type='email']:focus {
-            outline: none;
-            border-color: #F59E0B; /* border-amber-500 */
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5); /* ring-amber-500 */
-        }
-        .form-container input::placeholder {
-            color: #6B7280; /* placeholder-gray-500 */
-        }
-        .form-container button {
-            width: 100%;
-            background-color: #F59E0B; /* bg-amber-500 */
-            color: #1F2937; /* text-gray-800 */
-            font-weight: bold;
-            font-family: 'Poppins', sans-serif;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-size: 16px;
-        }
-        .form-container button:hover {
-            background-color: #D97706; /* hover:bg-amber-600 */
+
+        /* Classe para garantir altura total da tela em dispositivos móveis */
+        .min-h-screen-dynamic {
+            min-height: 100vh; /* Fallback para browsers antigos */
+            min-height: 100dvh;
         }
     </style>
 </head>
@@ -116,35 +72,42 @@
         </div>
     </div>
 
-    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) -->
-    <header class="relative min-h-screen flex items-center justify-start text-left overflow-hidden pt-36">
-        <!-- Imagem de fundo que representa transformação -->
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto-format&fit=crop" 
-                 alt="Pessoa sorrindo com tranquilidade enquanto organiza suas finanças" 
-                 class="w-full h-full object-cover">
-            <div class="hero-overlay"></div>
-        </div>
+    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) - SEM IMAGEM E COM GRADIENTE -->
+    <header id="main-header" class="relative bg-gradient-to-b from-gray-800 to-gray-900 min-h-screen-dynamic flex flex-col justify-center">
+        <!-- Espaçador que empurra o conteúdo para baixo da barra fixa -->
+        <div id="header-spacer" class="flex-shrink-0"></div>
         
-        <!-- Conteúdo do Herói com padding-bottom para criar a "área de segurança" no mobile -->
-        <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl sm:pb-0 pb-16">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
-            </h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-200">
-                Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
-            </p>
-            <div class="mt-4 md:mt-10">
-                <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
-                    QUERO SAIR DAS DÍVIDAS
-                </a>
-                <p class="mt-4 text-sm text-gray-300">Acesso por apenas 7x de R$ 11,04 ou R$ 67,50 à vista</p>
+        <!-- Wrapper do conteúdo principal para alinhamento -->
+        <div class="flex-grow flex items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-0">
+                <!-- Conteúdo do Herói -->
+                <div class="max-w-4xl">
+                    <h1 class="text-4xl sm:text-5xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                        O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
+                    </h1>
+                    <p class="mt-6 text-xl md:text-xl text-gray-300">
+                        Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
+                    </p>
+                    <div class="mt-8 md:mt-10">
+                        <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
+                            QUERO SAIR DAS DÍVIDAS
+                        </a>
+                        <p class="mt-4 text-base text-gray-300">Acesso por apenas 7x de R$ 11,04 ou R$ 67,50 à vista</p>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Elemento para incentivar o scroll (Seta Animada) -->
+        <a href="#section-2" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+            <svg class="w-10 h-10 text-white/50 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </a>
     </header>
 
     <!-- SEÇÃO 2: IDENTIFICAÇÃO DA DOR -->
-    <section class="py-16 sm:py-24 bg-gray-800">
+    <section id="section-2" class="py-16 sm:py-24 bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Este Método é Para Você Que...</h2>
@@ -338,8 +301,8 @@
                 <a href="https://www.instagram.com/ricardomeloprosperidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Instagram</a>
                 <a href="https://www.youtube.com/@portalirm" target="_blank" rel="noopener noreferrer" class="hover:text-white">YouTube</a>
             </div>
-            <p class="mt-8 text-sm">CNPJ: 03.237.525/0001-33. &copy; 2025 Instituto Ricardo Melo. Todos os direitos reservados.</p>
-            <div class="mt-4 text-sm space-x-4">
+            <p class="mt-8 text-base sm:text-sm">CNPJ: 03.237.525/0001-33. &copy; 2025 Instituto Ricardo Melo. Todos os direitos reservados.</p>
+            <div class="mt-4 flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-2 sm:space-y-0 text-base sm:text-sm">
                 <a href="https://novidadesirm.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Política de Privacidade e Termos de Uso</a>
             </div>
         </div>
@@ -353,143 +316,56 @@
         <img src="https://raw.githubusercontent.com/iamraphasilva/paginas-vendas-mif/main/mockup%20wpp%20v3.png" alt="Fale Conosco pelo WhatsApp" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full shadow-lg">
     </a>
 
-    <!-- Modal/Pop-up do Formulário -->
-    <div id="form-modal" class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-75 hidden">
-        <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-lg relative mx-4">
-            <button id="close-modal-btn" class="absolute top-2 right-4 text-gray-400 hover:text-white text-4xl font-bold">&times;</button>
-            <h2 class="text-2xl font-bold text-white mb-4">Quase lá!</h2>
-            <p class="text-gray-300 mb-6">Preencha os seus dados abaixo para garantir a sua vaga.</p>
-            
-            <!-- AQUI ENTRA O CÓDIGO DO ACTIVE CAMPAIGN -->
-            <div class="form-container">
-                <form method="POST" action="https://institutoricardomelo.activehosted.com/proc.php" id="form_47" novalidate>
-                    <input type="hidden" name="u" value="47" />
-                    <input type="hidden" name="f" value="47" />
-                    <input type="hidden" name="s" />
-                    <input type="hidden" name="c" value="0" />
-                    <input type="hidden" name="m" value="0" />
-                    <input type="hidden" name="act" value="sub" />
-                    <input type="hidden" name="v" value="2" />
-                    
-                    <div class="space-y-6">
-                        <input type="text" name="fullname" placeholder="Digite seu primeiro nome" required class="w-full">
-                        <input type="email" name="email" placeholder="Digite seu melhor e-mail" required class="w-full">
-                        <input type="text" name="phone" placeholder="Digite seu telefone" required onkeydown="return mascaraTelefone(event)" class="w-full">
-                        <button type="submit">ACABAR COM AS DÍVIDAS</button>
-                    </div>
-                </form>
-            </div>
-            <!-- FIM DO CÓDIGO DO ACTIVE CAMPAIGN -->
-
-        </div>
-    </div>
-
     <script>
-        // Script para a máscara de telefone
-        function mascaraTelefone(event) {
-            let tecla = event.key;
-            let telefone = event.target.value.replace(/\D+/g, "");
-
-            if (/^[0-9]$/i.test(tecla)) {
-                telefone = telefone + tecla;
-                let tamanho = telefone.length;
-
-                if (tamanho >= 12) {
-                    return false;
-                }
-
-                if (tamanho > 10) {
-                    telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-                } else if (tamanho > 5) {
-                    telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-                } else if (tamanho > 2) {
-                    telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-                } else {
-                    telefone = telefone.replace(/^(\d*)/, "($1");
-                }
-
-                event.target.value = telefone;
-            }
-
-            if (!["Backspace", "Delete", "Tab"].includes(tecla)) {
-                return false;
+        // Script to make the header fit the screen perfectly on mobile
+        function adjustHeaderHeight() {
+            const bar = document.getElementById('urgency-bar-container');
+            const header = document.getElementById('main-header');
+            const spacer = document.getElementById('header-spacer');
+            if (bar && header && spacer) {
+                const barHeight = bar.offsetHeight;
+                spacer.style.height = `${barHeight}px`;
             }
         }
 
-        // Script para o Modal
-        const modal = document.getElementById('form-modal');
-        const openModalButtons = document.querySelectorAll('.open-modal-btn');
-        const closeModalBtn = document.getElementById('close-modal-btn');
+        window.addEventListener('load', adjustHeaderHeight);
+        window.addEventListener('resize', adjustHeaderHeight);
+		
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkoutBaseUrl = 'https://pay.hotmart.com/G44243838M?off=wyna9puk';
+            const checkoutLinks = document.querySelectorAll('.open-modal-btn'); // Usa a classe existente dos botões
 
-        const openModal = (e) => {
-            e.preventDefault();
-            modal.style.display = 'flex';
-        };
+            // 1. Pega os parâmetros da URL da página atual
+            const urlParams = new URLSearchParams(window.location.search);
+            const existingParamsString = urlParams.toString();
 
-        const closeModal = () => {
-            modal.style.display = 'none';
-        };
+            // 2. Captura os valores UTM para criar o parâmetro 'sck'
+            const utmCampaign = urlParams.get('utm_campaign') || '';
+            const utmSource = urlParams.get('utm_source') || '';
+            const utmContent = urlParams.get('utm_content') || '';
+            const utmTerm = urlParams.get('utm_term') || '';
+            const utmMedium = urlParams.get('utm_medium') || '';
+            
+            // 3. Monta o valor do parâmetro 'sck' no formato solicitado
+            const sckValue = [utmCampaign, utmSource, utmContent, utmTerm, utmMedium].join('|');
 
-        openModalButtons.forEach(btn => {
-            btn.addEventListener('click', openModal);
-        });
+            // 4. Constrói a URL final de checkout
+            let finalUrl = checkoutBaseUrl;
 
-        closeModalBtn.addEventListener('click', closeModal);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
+            // Anexa os parâmetros UTM existentes da página
+            if (existingParamsString) {
+                finalUrl += `&${existingParamsString}`;
             }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                closeModal();
+            // Anexa o novo parâmetro 'sck'
+            if (sckValue) {
+                 finalUrl += `&sck=${encodeURIComponent(sckValue)}`;
             }
-        });
 
-        // Script de tracking UTM
-        const utms = {
-            'campaign': 220,
-            'medium': 219,
-            'source': 216,
-            'content': 217,
-            'term': 218
-        };
-
-        const prefixo = "utm_";
-
-        function criarCampos() {
-            const form = document.querySelectorAll('form');
-            const urlParamsCapt = new URLSearchParams(window.location.search);
-            const urlParamsCaptReferrer = new URLSearchParams(document.referrer.split('?')[1] || '');
-
-            form.forEach(el => {
-                for (let utm in utms) {
-                    const paramName = prefixo + utm;
-                    if (!el.querySelector(`input[name="field[${utms[utm]}]"]`)) {
-                        let x = document.createElement("INPUT");
-                        x.setAttribute("type", "hidden");
-                        x.setAttribute("name", `field[${utms[utm]}]`);
-
-                        if (utm === "source") {
-                            x.setAttribute("value", urlParamsCapt.get(paramName) ? urlParamsCapt.get(paramName) : (document.referrer ? (urlParamsCaptReferrer.get(paramName) || new URL(document.referrer).hostname) : "direto"));
-                        } else {
-                            x.setAttribute("value", urlParamsCapt.get(paramName) || urlParamsCaptReferrer.get(paramName) || "");
-                        }
-
-                        el.appendChild(x);
-                    }
-                }
+            // 5. Atualiza o atributo href de todos os botões de checkout
+            checkoutLinks.forEach(link => {
+                link.href = finalUrl;
             });
-        }
-
-        criarCampos();
-        window.onload = criarCampos;
-        const emailInput = document.getElementById("email");
-        if(emailInput) {
-            emailInput.onchange = function () { criarCampos(); }
-        }
+        });
     </script>
 </body>
 </html>
