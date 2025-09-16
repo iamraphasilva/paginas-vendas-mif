@@ -31,6 +31,17 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
         }
+        /* Efeito de sobreposição na imagem do herói */
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
         /* Estilo para a barra de progresso com listras */
         .progress-bar-track {
             background-color: #374151; /* Cor de fundo cinza escuro (gray-700) */
@@ -81,12 +92,6 @@
         .form-container button:hover {
             background-color: #D97706; /* hover:bg-amber-600 */
         }
-
-        /* Classe para garantir altura total da tela em dispositivos móveis */
-        .min-h-screen-dynamic {
-            min-height: 100vh; /* Fallback para browsers antigos */
-            min-height: 100dvh;
-        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -111,42 +116,35 @@
         </div>
     </div>
 
-    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) - SEM IMAGEM E COM GRADIENTE -->
-    <header id="main-header" class="relative bg-gradient-to-b from-gray-800 to-gray-900 min-h-screen-dynamic flex flex-col justify-center">
-        <!-- Espaçador que empurra o conteúdo para baixo da barra fixa -->
-        <div id="header-spacer" class="flex-shrink-0"></div>
+    <!-- SEÇÃO 1: HERÓI (TOPO DA PÁGINA) -->
+    <header class="relative min-h-screen flex items-center justify-start text-left overflow-hidden pt-36">
+        <!-- Imagem de fundo que representa transformação -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto-format&fit=crop" 
+                 alt="Pessoa sorrindo com tranquilidade enquanto organiza suas finanças" 
+                 class="w-full h-full object-cover">
+            <div class="hero-overlay"></div>
+        </div>
         
-        <!-- Wrapper do conteúdo principal para alinhamento -->
-        <div class="flex-grow flex items-center">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-0">
-                <!-- Conteúdo do Herói -->
-                <div class="max-w-4xl">
-                    <h1 class="text-4xl sm:text-5xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                        O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
-                    </h1>
-                    <p class="mt-6 text-xl md:text-xl text-gray-300">
-                        Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
-                    </p>
-                    <div class="mt-8 md:mt-10">
-                        <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
-                            QUERO SAIR DAS DÍVIDAS
-                        </a>
-                        <p class="mt-4 text-base text-gray-300">Acesso por apenas 12x de R$ 11,04 ou R$ 67,50 à vista</p>
-                    </div>
-                </div>
+        <!-- Conteúdo do Herói com padding-bottom para criar a "área de segurança" no mobile -->
+        <div class="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl sm:pb-0 pb-16">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                O Fim das Dívidas: O Método Simples Para Retomar o Controle do Seu Dinheiro.
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-200">
+                Enquanto os bancos lucram com os seus juros e as contas consomem seu futuro, você continua correndo sem sair do lugar. Existe uma porta de saída nessa prisão. Esta é a chave.
+            </p>
+            <div class="mt-4 md:mt-10">
+                <a href="#" class="open-modal-btn inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-lg rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
+                    QUERO SAIR DAS DÍVIDAS
+                </a>
+                <p class="mt-4 text-sm text-gray-300">Acesso por apenas 7x de R$ 11,04 ou R$ 67,50 à vista</p>
             </div>
         </div>
-
-        <!-- Elemento para incentivar o scroll (Seta Animada) -->
-        <a href="#section-2" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-            <svg class="w-10 h-10 text-white/50 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-        </a>
     </header>
 
     <!-- SEÇÃO 2: IDENTIFICAÇÃO DA DOR -->
-    <section id="section-2" class="py-16 sm:py-24 bg-gray-800">
+    <section class="py-16 sm:py-24 bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Este Método é Para Você Que...</h2>
@@ -281,8 +279,8 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white">ACESSE O MÉTODO COMPLETO + TODOS OS BÔNUS AGORA</h2>
             <div class="mt-8 bg-gray-800 p-8 rounded-2xl shadow-2xl">
-                <p class="text-lg text-gray-400">De <span class="line-through">R$ 690,50</span> por apenas:</p>
-                <p class="my-4 text-5xl md:text-6xl font-bold text-amber-500">12x de R$ 11,04</p>
+                <p class="text-lg text-gray-400">De <span class="line-through text-red-600 decoration-red-600">R$ 690,50</span> por apenas:</p>
+                <p class="my-4 text-5xl md:text-6xl font-bold text-amber-500">7x de R$ 11,04</p>
                 <p class="text-xl text-white">ou R$ 67,50 à vista</p>
                 <a href="#" class="open-modal-btn mt-8 inline-block w-full max-w-md bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold text-xl rounded-lg px-12 py-4 shadow-lg transition-transform transform hover:scale-105">
                     GARANTIR MINHA VAGA COM DESCONTO
@@ -340,8 +338,8 @@
                 <a href="https://www.instagram.com/ricardomeloprosperidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white">Instagram</a>
                 <a href="https://www.youtube.com/@portalirm" target="_blank" rel="noopener noreferrer" class="hover:text-white">YouTube</a>
             </div>
-            <p class="mt-8 text-base sm:text-sm">CNPJ: 03.237.525/0001-33. &copy; 2025 Instituto Ricardo Melo. Todos os direitos reservados.</p>
-            <div class="mt-4 flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-2 sm:space-y-0 text-base sm:text-sm">
+            <p class="mt-8 text-sm">CNPJ: 03.237.525/0001-33. &copy; 2025 Instituto Ricardo Melo. Todos os direitos reservados.</p>
+            <div class="mt-4 text-sm space-x-4">
                 <a href="https://novidadesirm.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline">Política de Privacidade e Termos de Uso</a>
             </div>
         </div>
@@ -492,20 +490,6 @@
         if(emailInput) {
             emailInput.onchange = function () { criarCampos(); }
         }
-
-        // Script to make the header fit the screen perfectly on mobile
-        function adjustHeaderHeight() {
-            const bar = document.getElementById('urgency-bar-container');
-            const header = document.getElementById('main-header');
-            const spacer = document.getElementById('header-spacer');
-            if (bar && header && spacer) {
-                const barHeight = bar.offsetHeight;
-                spacer.style.height = `${barHeight}px`;
-            }
-        }
-
-        window.addEventListener('load', adjustHeaderHeight);
-        window.addEventListener('resize', adjustHeaderHeight);
     </script>
 </body>
 </html>
